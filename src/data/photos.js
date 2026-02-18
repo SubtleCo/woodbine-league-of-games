@@ -32,6 +32,9 @@ export const photoFiles = [
   'Woodbine_Wednesdays.png'
 ];
 
-// Use root-relative asset paths so production on the custom domain resolves
-// consistently, regardless of hash routes or document-relative URL changes.
-export const photoUrl = (fileName) => `/photos/${fileName}`;
+const basePath = import.meta.env.BASE_URL || '/';
+const normalizedBasePath = basePath.endsWith('/') ? basePath : `${basePath}/`;
+
+// Build image URLs from Vite's configured base path so GitHub project pages
+// and custom/root domains both resolve correctly.
+export const photoUrl = (fileName) => `${normalizedBasePath}photos/${fileName}`;
