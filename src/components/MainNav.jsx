@@ -1,4 +1,4 @@
-import { Button, Stack } from '@mui/material';
+import { Box } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
 /*
@@ -6,44 +6,29 @@ import { NavLink } from 'react-router-dom';
   NavLink gives us route awareness so the active section is highlighted.
 */
 export default function MainNav() {
-  return (
-    <Stack
-      direction="row"
-      spacing={1}
-      justifyContent="center"
-      flexWrap="wrap"
-      sx={{ mb: 3, rowGap: 1 }}
-      aria-label="Main menu"
-    >
-      <Button
-        component={NavLink}
-        to="/stuffwelike"
-        variant="contained"
-        color="primary"
-        sx={linkButtonSx}
-      >
-        Stuff We Like (store)
-      </Button>
+  const navItems = [
+    { type: 'internal', to: '/stuffwelike', label: 'Stuff We Like' },
+    { type: 'internal', to: '/woodbinewednesdays', label: 'Woodbine Wednesdays' },
+    { type: 'external', href: 'https://primitivecoffee.co', label: 'Primitive Coffee Co' },
+    { type: 'external', href: 'https://iv.studio', label: 'IV Studio' }
+  ];
 
-      <Button
-        component={NavLink}
-        to="/woodbinewednesdays"
-        variant="contained"
-        color="primary"
-        sx={linkButtonSx}
-      >
-        Woodbine Wednesdays
-      </Button>
-    </Stack>
+  return (
+    <Box className="main-nav" aria-label="Main menu">
+      {navItems.map((item, index) => (
+        <Box key={item.to ?? item.href} component="span" className="main-nav-item">
+          {item.type === 'internal' ? (
+            <NavLink to={item.to} className={({ isActive }) => `main-nav-link ${isActive ? 'active' : ''}`}>
+              {item.label}
+            </NavLink>
+          ) : (
+            <a href={item.href} className="main-nav-link" target="_blank" rel="noreferrer">
+              {item.label}
+            </a>
+          )}
+          {index < navItems.length - 1 && <span className="main-nav-divider">/</span>}
+        </Box>
+      ))}
+    </Box>
   );
 }
-
-const linkButtonSx = {
-  borderRadius: '999px',
-  px: 2,
-  py: 0.8,
-  boxShadow: '0 8px 16px rgba(13, 95, 79, 0.22)',
-  '&.active': {
-    background: 'linear-gradient(135deg, #d97b38, #bb5d25)'
-  }
-};

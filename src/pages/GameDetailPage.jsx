@@ -1,7 +1,8 @@
-import { Link as MuiLink, Typography } from '@mui/material';
+import { Box, Link as MuiLink, Typography } from '@mui/material';
 import { Link as RouterLink, useParams } from 'react-router-dom';
-import StoryBlock from '../components/StoryBlock';
+import StoreSidebar from '../components/StoreSidebar';
 import { gameBySlug } from '../data/games';
+import { photoUrl } from '../data/photos';
 
 /*
   Dynamic detail page for any game slug.
@@ -30,25 +31,44 @@ export default function GameDetailPage() {
   }
 
   return (
-    <>
+    <Box>
       <Typography variant="h1" component="h1" sx={{ mb: 1, fontSize: { xs: '2rem', md: '2.6rem' } }}>
         {game.name}
       </Typography>
 
-      <Typography color="text.secondary" sx={{ mb: 2 }}>
+      <Typography color="text.secondary" sx={{ mb: 3 }}>
         {game.shortDescription}
       </Typography>
 
-      <StoryBlock
-        image={game.heroPhoto}
-        imageAlt={`${game.name} feature image`}
-        imageAlign="right"
-        paragraphs={game.detailParagraphs}
-      />
+      <Box className="store-layout">
+        <StoreSidebar currentSlug={game.slug} />
 
-      <MuiLink component={RouterLink} to="/stuffwelike" underline="hover">
-        Back to Stuff We Like
-      </MuiLink>
-    </>
+        <Box className="store-main-panel">
+          <Box
+            component="img"
+            src={photoUrl(game.heroPhoto)}
+            alt={`${game.name} feature image`}
+            className="game-hero-image"
+          />
+
+          <Box className="game-stats-strip">
+            <Typography component="span" className="game-stats-label">
+              Quick Notes
+            </Typography>
+            <Typography component="span">{game.shortDescription}</Typography>
+          </Box>
+
+          {game.detailParagraphs.map((paragraph) => (
+            <Typography key={paragraph} paragraph>
+              {paragraph}
+            </Typography>
+          ))}
+
+          <MuiLink component={RouterLink} to="/stuffwelike" underline="hover">
+            Back to Stuff We Like
+          </MuiLink>
+        </Box>
+      </Box>
+    </Box>
   );
 }

@@ -1,5 +1,5 @@
 import { Box, Container, Typography } from '@mui/material';
-import { Outlet } from 'react-router-dom';
+import { Link as RouterLink, Outlet } from 'react-router-dom';
 import MainNav from './MainNav';
 
 /*
@@ -8,14 +8,21 @@ import MainNav from './MainNav';
 */
 export default function SiteLayout() {
   return (
-    <Container maxWidth="lg" sx={{ pt: 2, pb: 5 }}>
-      <Box component="header" textAlign="center" mb={2}>
+    <Container maxWidth="lg" sx={{ pt: 2, pb: 5 }} className="site-shell">
+      <Box component="header" textAlign="center" mb={2} className="site-header">
         <Box
-          component="img"
-          src="/photos/logo.png"
-          alt="Woodbine League of Games logo"
-          className="logo-image"
-        />
+          component={RouterLink}
+          to="/"
+          className="site-logo-link"
+          aria-label="Go to homepage"
+        >
+          <Box
+            component="img"
+            src="/photos/logo.png"
+            alt="Woodbine League of Games logo"
+            className="logo-image"
+          />
+        </Box>
         <MainNav />
       </Box>
 
@@ -23,7 +30,7 @@ export default function SiteLayout() {
         <Outlet />
       </Box>
 
-      <Box component="footer" mt={5} textAlign="center">
+      <Box component="footer" mt={5} textAlign="center" className="site-footer">
         <Typography variant="body2" color="text.secondary">
           Woodbine League of Games
         </Typography>

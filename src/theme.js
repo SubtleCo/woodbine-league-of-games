@@ -7,22 +7,22 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     background: {
-      default: '#f4efe6',
-      paper: '#fffaf0'
+      default: '#eee5d1',
+      paper: '#f8f3e7'
     },
     primary: {
-      main: '#0d5f4f'
+      main: '#4d6d43'
     },
     secondary: {
-      main: '#d97b38'
+      main: '#e07fa5'
     },
     text: {
-      primary: '#1e2421',
-      secondary: '#3f4a44'
+      primary: '#121620',
+      secondary: '#3d4a3f'
     }
   },
   typography: {
-    fontFamily: '"Libre Baskerville", Georgia, serif',
+    fontFamily: '"JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
     h1: {
       fontFamily: '"Bungee", "Trebuchet MS", sans-serif',
       letterSpacing: '0.02em'
@@ -34,12 +34,35 @@ const theme = createTheme({
     h3: {
       fontFamily: '"Bungee", "Trebuchet MS", sans-serif'
     },
+    body1: {
+      fontFamily: '"JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
+    },
+    body2: {
+      fontFamily: '"JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
+    },
     button: {
+      fontFamily: '"JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
       textTransform: 'none'
     }
   },
   shape: {
-    borderRadius: 14
+    borderRadius: 4
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 2
+        }
+      }
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          borderRadius: 4
+        }
+      }
+    }
   }
 });
 
