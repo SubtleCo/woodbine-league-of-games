@@ -1,6 +1,7 @@
 import { Box, Container, Typography } from '@mui/material';
 import { Link as RouterLink, Outlet } from 'react-router-dom';
 import MainNav from './MainNav';
+import { photoUrl } from '../data/photos';
 
 /*
   Shared page shell for every route.
@@ -18,7 +19,7 @@ export default function SiteLayout() {
         >
           <Box
             component="img"
-            src="/photos/logo.png"
+            src={photoUrl('logo.png')}
             alt="Woodbine League of Games logo"
             className="logo-image"
           />
