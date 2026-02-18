@@ -1,0 +1,303 @@
+/*
+  Global styles that complement the Material UI theme.
+  Layout, textures, and component-specific classes live here.
+*/
+:root {
+  --logo-ink: #0f111a;
+  --logo-white: #f4f4f2;
+  --logo-moss: #9acb67;
+  --logo-moss-deep: #4d6d43;
+  --logo-blossom: #e07fa5;
+  --camp-canvas: #eee5d1;
+  --camp-panel: #f8f3e7;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    linear-gradient(to right, rgba(77, 109, 67, 0.12) 1px, transparent 1px),
+    radial-gradient(circle at 20% 10%, rgba(154, 203, 103, 0.12), transparent 26%),
+    linear-gradient(var(--camp-canvas), #e4dac3);
+  background-size: 28px 28px, 100% 100%, 100% 100%;
+}
+
+.site-shell {
+  border-left: 1px solid rgba(30, 36, 33, 0.16);
+  border-right: 1px solid rgba(30, 36, 33, 0.16);
+  background: rgba(255, 252, 245, 0.75);
+}
+
+.site-header {
+  padding-top: 0.5rem;
+}
+
+.site-logo-link {
+  display: inline-block;
+  line-height: 0;
+}
+
+.site-logo-link:focus-visible {
+  outline: 2px solid var(--logo-moss-deep);
+  outline-offset: 6px;
+}
+
+.logo-image {
+  width: min(320px, 76vw);
+  max-height: 170px;
+  object-fit: contain;
+  margin-bottom: 0.65rem;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.16));
+}
+
+.main-nav {
+  border-top: 2px solid var(--logo-moss-deep);
+  border-bottom: 2px solid var(--logo-moss-deep);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 1.25rem;
+}
+
+.main-nav-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.main-nav-link {
+  color: #2b4230;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  letter-spacing: 0.02em;
+  padding: 0.1rem 0.25rem;
+  border-bottom: 1px solid transparent;
+}
+
+.main-nav-link:hover,
+.main-nav-link:focus-visible,
+.main-nav-link.active {
+  color: var(--logo-ink);
+  border-bottom-color: var(--logo-blossom);
+}
+
+.main-nav-divider {
+  color: #5f735d;
+  margin: 0 0.2rem;
+}
+
+.carousel-root {
+  background: rgba(248, 243, 231, 0.72);
+  border: 1px solid rgba(77, 109, 67, 0.32);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  min-height: 280px;
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-button {
+  position: absolute !important;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  color: var(--logo-white) !important;
+  border-radius: 2px !important;
+  background: rgba(15, 17, 26, 0.76) !important;
+}
+
+.carousel-button:hover,
+.carousel-button:focus-visible {
+  background: rgba(15, 17, 26, 0.93) !important;
+}
+
+.carousel-button.prev {
+  left: 12px;
+}
+
+.carousel-button.next {
+  right: 12px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.8rem;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.carousel-dot.active {
+  background: var(--logo-blossom);
+}
+
+.story-image {
+  width: min(320px, 100%);
+  border-radius: 3px;
+  margin: 0 0 0.5rem;
+}
+
+.story-image.left {
+  float: left;
+  margin-right: 1rem;
+}
+
+.story-image.right {
+  float: right;
+  margin-left: 1rem;
+}
+
+.store-layout {
+  display: grid;
+  grid-template-columns: minmax(150px, 210px) minmax(0, 1fr);
+  gap: 1.25rem;
+}
+
+.store-sidebar {
+  border: 1px solid rgba(77, 109, 67, 0.45);
+  background: rgba(248, 243, 231, 0.85);
+  overflow: hidden;
+}
+
+.store-sidebar .MuiTypography-root {
+  padding: 0.7rem 0.8rem 0.45rem;
+}
+
+.store-rail-link {
+  display: block;
+  color: #2b4030;
+  padding: 0.7rem 0.8rem;
+  border-top: 1px solid rgba(77, 109, 67, 0.28);
+  font-weight: 700;
+  font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+.store-rail-link:hover,
+.store-rail-link:focus-visible {
+  background: rgba(154, 203, 103, 0.2);
+}
+
+.store-rail-link.active {
+  background: var(--logo-ink);
+  color: var(--logo-white);
+}
+
+.store-submenu {
+  border-top: 1px solid rgba(77, 109, 67, 0.28);
+  background: rgba(15, 17, 26, 0.07);
+}
+
+.store-rail-link.store-rail-sublink {
+  padding-left: 2rem;
+  padding-right: 0.55rem;
+  font-weight: 600;
+  font-size: 0.72rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  box-sizing: border-box;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: rgba(15, 17, 26, 0.11);
+}
+
+.store-rail-sublink:hover,
+.store-rail-sublink:focus-visible {
+  background: rgba(15, 17, 26, 0.2);
+}
+
+.store-main-panel {
+  border: 1px solid rgba(77, 109, 67, 0.45);
+  background: rgba(248, 243, 231, 0.9);
+  padding: 1rem 1.1rem;
+}
+
+.store-row + .store-row {
+  border-top: 1px solid rgba(77, 109, 67, 0.26);
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+.game-hero-image {
+  width: 100%;
+  max-height: 440px;
+  object-fit: cover;
+  border: 1px solid rgba(77, 109, 67, 0.45);
+  margin-bottom: 0.85rem;
+}
+
+.game-stats-strip {
+  border: 1px solid rgba(77, 109, 67, 0.35);
+  padding: 0.55rem 0.7rem;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.game-stats-label {
+  font-weight: 700;
+  color: #324d30;
+}
+
+.site-footer {
+  border-top: 1px solid rgba(30, 36, 33, 0.16);
+  padding-top: 0.6rem;
+}
+
+.MuiPaper-root::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 700px) {
+  .story-image.left,
+  .story-image.right {
+    float: none;
+    display: block;
+    margin: 0 auto 0.75rem;
+  }
+
+  .carousel-button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .store-layout {
+    grid-template-columns: 1fr;
+  }
+}
