@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/sync-image-alias.mjs",
     "build": "vite build",
+    "postbuild": "node scripts/cleanup-image-alias.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
