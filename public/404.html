@@ -9,8 +9,16 @@
     <script>
       (function () {
         var loc = window.location;
-        var route = loc.pathname === '/404.html' ? '/' : loc.pathname;
-        var target = loc.origin + '/#' + route + loc.search + loc.hash;
+        var pathSegments = loc.pathname.split('/').filter(Boolean);
+        var isGithubProjectSite = /github\.io$/i.test(loc.hostname) && pathSegments.length > 0;
+        var basePath = isGithubProjectSite ? '/' + pathSegments[0] : '';
+        var routePath = isGithubProjectSite ? '/' + pathSegments.slice(1).join('/') : loc.pathname;
+
+        if (routePath === '/404.html' || routePath === '/') {
+          routePath = '/';
+        }
+
+        var target = loc.origin + basePath + '/#' + routePath + loc.search + loc.hash;
         window.location.replace(target);
       })();
     </script>
