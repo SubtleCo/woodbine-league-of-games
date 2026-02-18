@@ -1,0 +1,129 @@
+/*
+  Global styles that complement the Material UI theme.
+  Layout, textures, and component-specific classes live here.
+*/
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, #fdf7ed 0%, transparent 40%),
+    radial-gradient(circle at bottom right, #efe2cc 0%, transparent 35%),
+    linear-gradient(165deg, #f4efe6, #e6dbc6);
+}
+
+.logo-image {
+  width: min(360px, 80vw);
+  max-height: 200px;
+  object-fit: contain;
+  margin-bottom: 0.8rem;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.18));
+}
+
+.carousel-root {
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(13, 95, 79, 0.22);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.carousel-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  min-height: 280px;
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-button {
+  position: absolute !important;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  color: #fff !important;
+  background: rgba(0, 0, 0, 0.55) !important;
+}
+
+.carousel-button:hover,
+.carousel-button:focus-visible {
+  background: rgba(0, 0, 0, 0.75) !important;
+}
+
+.carousel-button.prev {
+  left: 12px;
+}
+
+.carousel-button.next {
+  right: 12px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.8rem;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.carousel-dot.active {
+  background: #d97b38;
+}
+
+.story-image {
+  width: min(320px, 100%);
+  border-radius: 10px;
+  margin: 0 0 0.5rem;
+}
+
+.story-image.left {
+  float: left;
+  margin-right: 1rem;
+}
+
+.story-image.right {
+  float: right;
+  margin-left: 1rem;
+}
+
+.MuiPaper-root::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 700px) {
+  .story-image.left,
+  .story-image.right {
+    float: none;
+    display: block;
+    margin: 0 auto 0.75rem;
+  }
+
+  .carousel-button {
+    width: 38px;
+    height: 38px;
+  }
+}
