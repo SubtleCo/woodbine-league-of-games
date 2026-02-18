@@ -32,4 +32,6 @@ export const photoFiles = [
   'Woodbine_Wednesdays.png'
 ];
 
-export const photoUrl = (fileName) => `${import.meta.env.BASE_URL}photos/${fileName}`;
+// Use root-relative asset paths so production on the custom domain resolves
+// consistently, regardless of hash routes or document-relative URL changes.
+export const photoUrl = (fileName) => `/photos/${fileName}`;

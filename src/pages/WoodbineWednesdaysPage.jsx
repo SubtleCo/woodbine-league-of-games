@@ -17,7 +17,7 @@ export default function WoodbineWednesdaysPage() {
       </Typography>
 
       <StoryBlock
-        image="IMG_2692.png"
+        image="IMG_2790.png"
         imageAlt="Players gathered around a game table"
         imageAlign="left"
         paragraphs={[
@@ -27,7 +27,7 @@ export default function WoodbineWednesdaysPage() {
       />
 
       <StoryBlock
-        image="IMG_3376.png"
+        image="IMG_2800.png"
         imageAlt="Close-up of a game in progress"
         imageAlign="right"
         paragraphs={[
