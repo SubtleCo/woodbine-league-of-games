@@ -32,4 +32,4 @@ export const photoFiles = [
   'Woodbine_Wednesdays.png'
 ];
 
-export const photoUrl = (fileName) => `/photos/${fileName}`;
+export const photoUrl = (fileName) => `${import.meta.env.BASE_URL}photos/${fileName}`;

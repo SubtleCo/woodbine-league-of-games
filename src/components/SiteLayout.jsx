@@ -18,7 +18,7 @@ export default function SiteLayout() {
         >
           <Box
             component="img"
-            src="/photos/logo.png"
+            src={`${import.meta.env.BASE_URL}photos/logo.png`}
             alt="Woodbine League of Games logo"
             className="logo-image"
           />
