@@ -1,40 +1,26 @@
 /*
-  Master list of site photos.
-  Keeping file names here avoids scattering photo paths across many components.
+  Centralized photo lists and URL helper.
+  Paths are relative to public/photos.
 */
-export const photoFiles = [
-  'brink.jpg',
-  'dominion.jpg',
-  'IMG_0425.jpg',
-  'IMG_1903.jpg',
-  'IMG_2588.jpg',
-  'IMG_2790.jpg',
-  'IMG_2800.jpg',
-  'IMG_2834.jpg',
-  'IMG_2903.jpg',
-  'IMG_9101.jpg',
-  'IMG_9220.jpg',
-  'moonrakers.jpg',
-  'moonrakers_2.jpg',
-  'moonrakers_3.jpg',
-  'old_kings_crown.jpg',
-  'preview_L1000217.jpg',
-  'realm_of_reckoning.jpg',
-  'root.jpg',
-  'root_2.jpg',
-  'silverfrost.jpg',
-  'tend.jpg',
-  'tend_setup.jpg',
-  'time_to_panic.jpg',
-  'vantage.jpg',
-  'veiled_fate.jpg',
-  'veiled_fate_2.jpg',
-  'Woodbine_Wednesdays.jpg'
+export const homeCarouselFiles = [
+  'WLOG/IMG_0425.jpg',
+  'WLOG/IMG_1903.jpg',
+  'WLOG/IMG_2790.jpg',
+  'WLOG/IMG_2800.jpg',
+  'WLOG/IMG_2903.jpg',
+  'WLOG/IMG_9101.jpg',
+  'WLOG/IMG_9220.jpg',
+  'WLOG/preview_L1000217.jpg'
 ];
 
-const basePath = import.meta.env.BASE_URL || '/';
+export const woodbineWednesdaysPhotoFiles = [
+  'WLOG/IMG_2790.jpg',
+  'WLOG/IMG_2800.jpg',
+  'WLOG/IMG_9220.jpg'
+];
+
+const basePath = import.meta?.env?.BASE_URL || '/';
 const normalizedBasePath = basePath.endsWith('/') ? basePath : `${basePath}/`;
 
-// Build image URLs from Vite's configured base path so GitHub project pages
-// and custom/root domains both resolve correctly.
-export const photoUrl = (fileName) => `${normalizedBasePath}photos/${fileName}`;
+// Encode spaces and other special characters while keeping folder separators.
+export const photoUrl = (filePath) => `${normalizedBasePath}photos/${encodeURI(filePath)}`;

@@ -51,22 +51,12 @@ export default function GameDetailPage() {
             className="game-hero-image"
           />
 
-          <Box className="game-stats-strip">
-            <Typography component="span" className="game-stats-label">
-              Quick Notes
-            </Typography>
-            <Typography component="span">{game.shortDescription}</Typography>
-          </Box>
-
           {game.detailParagraphs.map((paragraph) => (
             <Typography key={paragraph} paragraph>
               {paragraph}
             </Typography>
           ))}
 
-          <MuiLink component={RouterLink} to="/stuffwelike" underline="hover">
-            Back to Stuff We Like
-          </MuiLink>
         </Box>
       </Box>
     </Box>

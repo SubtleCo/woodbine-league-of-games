@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
 import PhotoCarousel from '../components/PhotoCarousel';
-import { photoFiles } from '../data/photos';
+import { homeCarouselFiles } from '../data/photos';
 
 export default function HomePage() {
   return (
@@ -10,10 +10,10 @@ export default function HomePage() {
       </Typography>
 
       <Typography color="text.secondary" sx={{ mb: 2 }}>
-        A place for game nights, new finds, and the weekly Wednesday rhythm.
+        Your friendly neighborhood tabletop gaming group.
       </Typography>
 
-      <PhotoCarousel files={photoFiles} />
+      <PhotoCarousel files={homeCarouselFiles} />
     </>
   );
 }

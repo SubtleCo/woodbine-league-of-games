@@ -8,24 +8,20 @@
   --logo-moss: #9acb67;
   --logo-moss-deep: #4d6d43;
   --logo-blossom: #e07fa5;
-  --camp-canvas: #eee5d1;
-  --camp-panel: #f8f3e7;
+  --camp-canvas: #faf6ed;
+  --camp-panel: #faf6ed;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background:
-    linear-gradient(to right, rgba(77, 109, 67, 0.12) 1px, transparent 1px),
-    radial-gradient(circle at 20% 10%, rgba(154, 203, 103, 0.12), transparent 26%),
-    linear-gradient(var(--camp-canvas), #e4dac3);
-  background-size: 28px 28px, 100% 100%, 100% 100%;
+  background: var(--camp-canvas);
 }
 
 .site-shell {
   border-left: 1px solid rgba(30, 36, 33, 0.16);
   border-right: 1px solid rgba(30, 36, 33, 0.16);
-  background: rgba(255, 252, 245, 0.75);
+  background: var(--camp-canvas);
 }
 
 .site-header {
@@ -90,7 +86,7 @@ body {
 }
 
 .carousel-root {
-  background: rgba(248, 243, 231, 0.72);
+  background: var(--camp-panel);
   border: 1px solid rgba(77, 109, 67, 0.32);
   border-radius: 4px;
   overflow: hidden;
@@ -187,7 +183,7 @@ body {
 
 .store-sidebar {
   border: 1px solid rgba(77, 109, 67, 0.45);
-  background: rgba(248, 243, 231, 0.85);
+  background: var(--camp-panel);
   overflow: hidden;
 }
 
@@ -241,7 +237,7 @@ body {
 
 .store-main-panel {
   border: 1px solid rgba(77, 109, 67, 0.45);
-  background: rgba(248, 243, 231, 0.9);
+  background: var(--camp-panel);
   padding: 1rem 1.1rem;
 }
 
@@ -253,8 +249,9 @@ body {
 
 .game-hero-image {
   width: 100%;
-  max-height: 440px;
-  object-fit: cover;
+  max-height: 50vh;
+  height: auto;
+  object-fit: contain;
   border: 1px solid rgba(77, 109, 67, 0.45);
   margin-bottom: 0.85rem;
 }
