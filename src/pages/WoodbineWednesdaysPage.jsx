@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material';
 import StoryBlock from '../components/StoryBlock';
+import { woodbineWednesdaysPhotoFiles } from '../data/photos';
 
 /*
   Wednesday content page.
@@ -13,36 +14,36 @@ export default function WoodbineWednesdaysPage() {
       </Typography>
 
       <Typography color="text.secondary" sx={{ mb: 2 }}>
-        Weekly snapshots from the tables: who played what, what made us laugh, and what we are excited to run back.
+        Every Wednesday evening at Primitive Coffee! We start at 6pm and go til we go! This is your invitation to come!
       </Typography>
 
       <StoryBlock
-        image="IMG_2790.jpg"
+        image={woodbineWednesdaysPhotoFiles[0]}
         imageAlt="Players gathered around a game table"
         imageAlign="left"
         paragraphs={[
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer auctor viverra sem, ac porttitor eros dictum id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
-          'Sed volutpat dui ac sem convallis, a sollicitudin leo eleifend. Curabitur aliquet pellentesque orci, sed ultricies tortor volutpat at. Quisque non augue vel diam posuere accumsan vitae at odio.'
+          "Alex and Anna were tired of looking for a steadfast tabletop gaming group. At the same time, in February of 2025, we sat down to play Stonemaier's Apiary at Primitive Coffee when Trey, the owner of Primitive Coffee Co, informed us that we were, in fact, in a building owned by a board game company.",
+          "We met the fine folks of IV Studio, fell in love with thier games (and Alex found his favorite game ever in Moonrakers), and decided to put up a sign at Primitive saying something like 'Hey we play boardgames here on Wednesday night, and you should too.'"
         ]}
       />
 
       <StoryBlock
-        image="IMG_2800.jpg"
+        image={woodbineWednesdaysPhotoFiles[1]}
         imageAlt="Close-up of a game in progress"
         imageAlign="right"
         paragraphs={[
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean blandit, elit vitae dictum dictum, nibh purus fringilla elit, ac tincidunt nisl lacus sed elit. Integer mattis purus lorem, vitae posuere est cursus vitae.',
-          'Suspendisse hendrerit tincidunt dignissim. Etiam feugiat, turpis ac feugiat commodo, lorem est malesuada nisl, id ultricies erat metus a massa. Morbi feugiat orci et risus tempor, non cursus elit ullamcorper.'
+          "That was a while ago. At the beginning, we were a steadfast group of about 8 reliable gamers who showed up almost every Wednesday night, and now we've grown to the point were we're forcing Primitive to shop for more tables and chairs!",
+          "We usually arrive around 6pm and play smaller games until we've hit a quorum around 6:30, when we break into big box games. We always end up closing down the shop (and have a key so we can go even later!)"
         ]}
       />
 
       <StoryBlock
-        image="IMG_9220.jpg"
+        image={woodbineWednesdaysPhotoFiles[2]}
         imageAlt="Friends smiling during game night"
         imageAlign="left"
         paragraphs={[
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt facilisis risus, sit amet aliquet purus bibendum nec. In vehicula velit ac ligula posuere feugiat. Integer ac aliquet sem, vitae posuere sapien.',
-          'Mauris posuere erat non sem vulputate consequat. Nulla facilisi. Vivamus et massa ac dolor condimentum finibus et non libero. Integer scelerisque nisl vel mauris egestas elementum.'
+          "In March of 2026, we opened up a tiny retail shop called Stuff We Like of just our favorite board games. The hope is to get the word out to people who haven't played a game since Monopoly that the board game industry has been COOKING, and there's never been a better time to start growing your library and start connecting with new people",
+          "Look. The world is a lot. Perhaps now more than ever. We want the Woodbine League of Games to be a space where anyone and everyone can come, sit, pocket their phones, and push some pieces around a board while connecting with people they otherwise would never have met. We believe connecting with each other is the key to understanding each other, and that board games can save the world."
         ]}
       />
     </>
