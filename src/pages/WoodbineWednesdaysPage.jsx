@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import StoryBlock from '../components/StoryBlock';
 import { woodbineWednesdaysPhotoFiles } from '../data/photos';
 
@@ -9,11 +9,11 @@ import { woodbineWednesdaysPhotoFiles } from '../data/photos';
 export default function WoodbineWednesdaysPage() {
   return (
     <>
-      <Typography variant="h1" component="h1" sx={{ mb: 1, fontSize: { xs: '2rem', md: '2.6rem' } }}>
+      <Typography variant="h1" component="h1" className="section-title" sx={{ mb: 1, fontSize: { xs: '2rem', md: '2.6rem' } }}>
         Woodbine Wednesdays
       </Typography>
 
-      <Typography color="text.secondary" sx={{ mb: 2 }}>
+      <Typography color="text.secondary" className="page-intro">
         Every Wednesday evening at Primitive Coffee! We start at 6pm and go til we go! This is your invitation to come!
       </Typography>
 
@@ -37,12 +37,16 @@ export default function WoodbineWednesdaysPage() {
         ]}
       />
 
+      <Typography className="pull-quote">
+        "We want Wednesday nights to feel like a standing invitation: come in, pull up a chair, and play something worth talking about."
+      </Typography>
+
       <StoryBlock
         image={woodbineWednesdaysPhotoFiles[2]}
         imageAlt="Friends smiling during game night"
         imageAlign="left"
         paragraphs={[
-          "In March of 2026, we opened up a tiny retail shop called Stuff We Like of just our favorite board games. The hope is to get the word out to people who haven't played a game since Monopoly that the board game industry has been COOKING, and there's never been a better time to start growing your library and start connecting with new people",
+          "In March of 2026, we opened up a tiny retail shop called Stuff We Like of just our favorite board games. The hope is to get the word out to people who haven't played a game since Monopoly that the board game industry has been COOKING, and there's never been a better time to start growing your library and start connecting with new people.",
           "Look. The world is a lot. Perhaps now more than ever. We want the Woodbine League of Games to be a space where anyone and everyone can come, sit, pocket their phones, and push some pieces around a board while connecting with people they otherwise would never have met. We believe connecting with each other is the key to understanding each other, and that board games can save the world."
         ]}
       />

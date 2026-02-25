@@ -14,7 +14,7 @@ const theme = createTheme({
       main: '#4d6d43'
     },
     secondary: {
-      main: '#e07fa5'
+      main: '#b35d3a'
     },
     text: {
       primary: '#121620',
@@ -22,31 +22,32 @@ const theme = createTheme({
     }
   },
   typography: {
-    fontFamily: '"JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+    fontFamily: '"Work Sans", "Avenir Next", Avenir, "Segoe UI", sans-serif',
     h1: {
-      fontFamily: '"Bungee", "Trebuchet MS", sans-serif',
-      letterSpacing: '0.02em'
+      fontFamily: '"Fraunces", "Iowan Old Style", Georgia, serif',
+      letterSpacing: '-0.01em'
     },
     h2: {
-      fontFamily: '"Bungee", "Trebuchet MS", sans-serif',
-      letterSpacing: '0.02em'
+      fontFamily: '"Fraunces", "Iowan Old Style", Georgia, serif',
+      letterSpacing: '-0.01em'
     },
     h3: {
-      fontFamily: '"Bungee", "Trebuchet MS", sans-serif'
+      fontFamily: '"Fraunces", "Iowan Old Style", Georgia, serif',
+      letterSpacing: '-0.005em'
     },
     body1: {
-      fontFamily: '"JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
+      fontFamily: '"Work Sans", "Avenir Next", Avenir, "Segoe UI", sans-serif'
     },
     body2: {
-      fontFamily: '"JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
+      fontFamily: '"Work Sans", "Avenir Next", Avenir, "Segoe UI", sans-serif'
     },
     button: {
-      fontFamily: '"JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+      fontFamily: '"Work Sans", "Avenir Next", Avenir, "Segoe UI", sans-serif',
       textTransform: 'none'
     }
   },
   shape: {
-    borderRadius: 4
+    borderRadius: 10
   },
   components: {
     MuiButton: {
