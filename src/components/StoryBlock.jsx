@@ -8,12 +8,11 @@ import { photoUrl } from '../data/photos';
 export default function StoryBlock({ image, imageAlt, imageAlign = 'left', paragraphs = [] }) {
   return (
     <Paper
+      className="story-card"
       elevation={0}
       sx={{
         p: 2,
-        mb: 2,
-        border: '1px solid rgba(13, 95, 79, 0.2)',
-        backgroundColor: 'rgba(255, 250, 240, 0.72)'
+        mb: 2
       }}
     >
       <Box

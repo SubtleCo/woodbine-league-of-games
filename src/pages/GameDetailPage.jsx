@@ -32,11 +32,11 @@ export default function GameDetailPage() {
 
   return (
     <Box>
-      <Typography variant="h1" component="h1" sx={{ mb: 1, fontSize: { xs: '2rem', md: '2.6rem' } }}>
+      <Typography variant="h1" component="h1" className="section-title" sx={{ mb: 1, fontSize: { xs: '2rem', md: '2.6rem' } }}>
         {game.name}
       </Typography>
 
-      <Typography color="text.secondary" sx={{ mb: 3 }}>
+      <Typography color="text.secondary" className="page-intro">
         {game.shortDescription}
       </Typography>
 

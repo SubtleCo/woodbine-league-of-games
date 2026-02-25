@@ -10,12 +10,12 @@ import { topLevelGames } from '../data/games';
 export default function StuffWeLikePage() {
   return (
     <Box>
-      <Typography variant="h1" component="h1" sx={{ mb: 1, fontSize: { xs: '2rem', md: '2.6rem' } }}>
+      <Typography variant="h1" component="h1" className="section-title" sx={{ mb: 1, fontSize: { xs: '2rem', md: '2.6rem' } }}>
         Stuff We Like
       </Typography>
 
-      <Typography color="text.secondary" sx={{ mb: 3 }}>
-        A growing shelf-by-shelf guide to the games carried by our store.
+      <Typography color="text.secondary" className="page-intro">
+        A growing guide to the games carried by our store.
       </Typography>
 
       <Box className="store-layout">
