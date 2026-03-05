@@ -1,0 +1,14 @@
+version = 0.1
+
+[default.deploy.parameters]
+stack_name = "wlog-gift-cards"
+resolve_s3 = true
+s3_prefix = "wlog-gift-cards"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+disable_rollback = true
+image_repositories = []
+parameter_overrides = "AdminSecretArn=\"arn:aws:secretsmanager:us-east-1:802875844739:secret:wlog/gift-card-admin-4u5Dl3\""
+
+[default.global.parameters]
+region = "us-east-1"
