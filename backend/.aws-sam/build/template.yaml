@@ -1,0 +1,173 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Woodbine gift card admin API (auth + card status + transactions)
+Parameters:
+  AdminSecretArn:
+    Type: String
+    Description: ARN of AWS Secrets Manager secret with keys ADMIN_PASSCODE and JWT_SECRET
+Globals:
+  Function:
+    Runtime: nodejs20.x
+    Timeout: 10
+    MemorySize: 256
+    Architectures:
+    - x86_64
+    Environment:
+      Variables:
+        ADMIN_SECRET_ARN:
+          Ref: AdminSecretArn
+        JWT_TTL_SECONDS: '28800'
+        GIFT_CARDS_TABLE:
+          Ref: GiftCardsTable
+        GIFT_CARD_TRANSACTIONS_TABLE:
+          Ref: GiftCardTransactionsTable
+Resources:
+  GiftCardApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      CorsConfiguration:
+        AllowOrigins:
+        - '*'
+        AllowHeaders:
+        - Content-Type
+        - Authorization
+        AllowMethods:
+        - GET
+        - POST
+        - PATCH
+        - OPTIONS
+  GiftCardsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+      - AttributeName: cardId
+        AttributeType: S
+      KeySchema:
+      - AttributeName: cardId
+        KeyType: HASH
+  GiftCardTransactionsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+      - AttributeName: cardId
+        AttributeType: S
+      - AttributeName: transactionKey
+        AttributeType: S
+      KeySchema:
+      - AttributeName: cardId
+        KeyType: HASH
+      - AttributeName: transactionKey
+        KeyType: RANGE
+  AuthLoginFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: AuthLoginFunction
+      Handler: lambdas/auth-login/index.handler
+      Policies:
+      - Statement:
+        - Effect: Allow
+          Action:
+          - secretsmanager:GetSecretValue
+          Resource:
+            Ref: AdminSecretArn
+      Events:
+        PostLogin:
+          Type: HttpApi
+          Properties:
+            ApiId:
+              Ref: GiftCardApi
+            Path: /auth/login
+            Method: POST
+    Metadata:
+      SamResourceId: AuthLoginFunction
+  GiftCardGetFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: GiftCardGetFunction
+      Handler: lambdas/gift-card-get/index.handler
+      Policies:
+      - Statement:
+        - Effect: Allow
+          Action:
+          - secretsmanager:GetSecretValue
+          Resource:
+            Ref: AdminSecretArn
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: GiftCardsTable
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: GiftCardTransactionsTable
+      Events:
+        GetGiftCard:
+          Type: HttpApi
+          Properties:
+            ApiId:
+              Ref: GiftCardApi
+            Path: /gift-cards/{id}
+            Method: GET
+    Metadata:
+      SamResourceId: GiftCardGetFunction
+  GiftCardTransactionFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: GiftCardTransactionFunction
+      Handler: lambdas/gift-card-transaction/index.handler
+      Policies:
+      - Statement:
+        - Effect: Allow
+          Action:
+          - secretsmanager:GetSecretValue
+          Resource:
+            Ref: AdminSecretArn
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: GiftCardsTable
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: GiftCardTransactionsTable
+      Events:
+        PostTransaction:
+          Type: HttpApi
+          Properties:
+            ApiId:
+              Ref: GiftCardApi
+            Path: /gift-cards/{id}/transactions
+            Method: POST
+    Metadata:
+      SamResourceId: GiftCardTransactionFunction
+  GiftCardStatusFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: GiftCardStatusFunction
+      Handler: lambdas/gift-card-status/index.handler
+      Policies:
+      - Statement:
+        - Effect: Allow
+          Action:
+          - secretsmanager:GetSecretValue
+          Resource:
+            Ref: AdminSecretArn
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: GiftCardsTable
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: GiftCardTransactionsTable
+      Events:
+        PatchStatus:
+          Type: HttpApi
+          Properties:
+            ApiId:
+              Ref: GiftCardApi
+            Path: /gift-cards/{id}/status
+            Method: PATCH
+    Metadata:
+      SamResourceId: GiftCardStatusFunction
+Outputs:
+  ApiBaseUrl:
+    Value:
+      Fn::Sub: https://${GiftCardApi}.execute-api.${AWS::Region}.amazonaws.com
+    Description: Base URL for VITE_API_BASE_URL

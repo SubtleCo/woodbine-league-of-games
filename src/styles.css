@@ -462,6 +462,18 @@ body::before {
   clear: both;
 }
 
+.admin-page-wrap {
+  width: min(760px, 100%);
+  margin: 1.25rem auto;
+}
+
+.admin-card {
+  border: 1px solid var(--card-border);
+  background: var(--camp-panel-soft);
+  box-shadow: var(--card-shadow);
+  padding: 1rem;
+}
+
 @media (max-width: 700px) {
   .story-image.left,
   .story-image.right {
