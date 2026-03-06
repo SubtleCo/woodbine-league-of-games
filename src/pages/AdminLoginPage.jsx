@@ -39,10 +39,10 @@ export default function AdminLoginPage() {
     <Box className="admin-page-wrap">
       <Paper className="admin-card" elevation={0}>
         <Typography variant="h1" component="h1" sx={{ fontSize: { xs: '1.9rem', md: '2.3rem' }, mb: 1 }}>
-          Admin Sign In
+          You probably shouldn't be here you sly little fox. 
         </Typography>
         <Typography color="text.secondary" sx={{ mb: 2 }}>
-          Authenticate to access gift card management under `/admin`.
+          Unless you are me. In which case, log in.
         </Typography>
 
         {!isApiConfigured() ? (
