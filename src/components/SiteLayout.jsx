@@ -1,7 +1,6 @@
 import { Box, Container, Typography } from '@mui/material';
-import { Link as RouterLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import MainNav from './MainNav';
-import { photoUrl } from '../data/photos';
 
 /*
   Shared page shell for every route.
@@ -10,20 +9,35 @@ import { photoUrl } from '../data/photos';
 export default function SiteLayout() {
   return (
     <Container maxWidth="lg" sx={{ pt: 2, pb: 5 }} className="site-shell">
-      <Box component="header" textAlign="center" mb={2} className="site-header">
-        <Box
-          component={RouterLink}
-          to="/"
-          className="site-logo-link"
-          aria-label="Go to homepage"
+      <Box component="header" mb={2} className="site-header">
+        <Typography
+          variant="h1"
+          component="h1"
+          textAlign="center"
+          sx={{
+            fontFamily: 'Fraunces, serif',
+            fontSize: { xs: '2.6rem', md: '4rem' },
+            fontWeight: 700,
+            letterSpacing: '-0.01em',
+            lineHeight: 1.1,
+          }}
         >
-          <Box
-            component="img"
-            src={photoUrl('logo.png')}
-            alt="Woodbine League of Games logo"
-            className="logo-image"
-          />
-        </Box>
+          Woodbine League of Games
+        </Typography>
+        <Typography
+          variant="subtitle1"
+          component="p"
+          textAlign="center"
+          sx={{
+            fontFamily: 'Fraunces, serif',
+            fontStyle: 'italic',
+            fontSize: { xs: '1.1rem', md: '1.4rem' },
+            color: 'text.secondary',
+            pb: 1.5,
+          }}
+        >
+          a little neighborhood game shop
+        </Typography>
         <MainNav />
       </Box>
 
