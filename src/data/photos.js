@@ -48,9 +48,9 @@ export const homeCarouselSlides = [
 ];
 
 export const woodbineWednesdaysPhotoFiles = [
-  'WLOG/old_kings_crown.jpg',
-  'WLOG/root.jpg',
-  'WLOG/tend.jpg'
+  'carousel/old_kings_crown.jpg',
+  'carousel/root.jpg',
+  'carousel/tend.jpg'
 ];
 
 const basePath = import.meta?.env?.BASE_URL || '/';

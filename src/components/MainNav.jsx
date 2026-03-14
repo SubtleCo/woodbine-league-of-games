@@ -1,3 +1,4 @@
+import React from 'react';
 import { Box } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
@@ -16,18 +17,20 @@ export default function MainNav() {
   return (
     <Box className="main-nav" aria-label="Main menu">
       {navItems.map((item, index) => (
-        <Box key={item.to ?? item.href} component="span" className="main-nav-item">
-          {item.type === 'internal' ? (
-            <NavLink to={item.to} className={({ isActive }) => `main-nav-link ${isActive ? 'active' : ''}`}>
-              {item.label}
-            </NavLink>
-          ) : (
-            <a href={item.href} className="main-nav-link" target="_blank" rel="noreferrer">
-              {item.label}
-            </a>
-          )}
-          {index < navItems.length - 1 && <span className="main-nav-divider">/</span>}
-        </Box>
+        <React.Fragment key={item.to ?? item.href}>
+          <Box component="span" className="main-nav-item">
+            {item.type === 'internal' ? (
+              <NavLink to={item.to} className={({ isActive }) => `main-nav-link ${isActive ? 'active' : ''}`}>
+                {item.label}
+              </NavLink>
+            ) : (
+              <a href={item.href} className="main-nav-link" target="_blank" rel="noreferrer">
+                {item.label}
+              </a>
+            )}
+          </Box>
+          {index < navItems.length - 1 && <span className="main-nav-divider">//</span>}
+        </React.Fragment>
       ))}
     </Box>
   );

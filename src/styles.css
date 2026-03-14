@@ -45,7 +45,7 @@ body::before {
 }
 
 .site-header {
-  padding-top: 0.5rem;
+  padding-top: 0;
 }
 
 .site-logo-link {
@@ -70,10 +70,10 @@ body::before {
   border-top: 2px solid var(--logo-moss-deep);
   border-bottom: 2px solid var(--logo-moss-deep);
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.2rem;
+  gap: 1rem;
   padding: 0.5rem 0.8rem;
   margin-bottom: 1.25rem;
 }
@@ -88,8 +88,10 @@ body::before {
   text-decoration: none;
   font-weight: 700;
   font-family: 'Work Sans', 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
-  letter-spacing: 0.02em;
-  padding: 0.1rem 0.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.1rem 0.6rem;
   border-bottom: 1px solid transparent;
   transition: color 0.2s ease, border-color 0.2s ease;
 }
@@ -103,21 +105,17 @@ body::before {
 
 .main-nav-divider {
   color: #5f735d;
-  margin: 0 0.2rem;
+  margin: 0;
 }
 
 .carousel-root {
-  background: var(--camp-panel-soft);
-  border: 1px solid var(--card-border);
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: var(--card-shadow);
 }
 
 .carousel-frame {
   position: relative;
   aspect-ratio: 16 / 9;
-  min-height: 280px;
 }
 
 .carousel-slide {
@@ -139,83 +137,28 @@ body::before {
   object-fit: cover;
 }
 
-.carousel-slide-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(15, 17, 26, 0.76) 10%, rgba(15, 17, 26, 0.2) 42%, transparent 70%);
-}
-
-.carousel-slide-content {
-  position: absolute;
-  left: 1.2rem;
-  right: 1.2rem;
-  bottom: 1rem;
-  color: #fffdf7;
-}
-
-.carousel-slide-title {
-  margin: 0 0 0.2rem;
-  font-size: clamp(1rem, 2.4vw, 1.45rem);
-  letter-spacing: -0.01em;
-}
-
-.carousel-slide-subtitle {
-  margin: 0;
-  max-width: 52ch;
-  color: rgba(255, 251, 240, 0.92);
-}
-
-.carousel-slide-link {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-weight: 600;
-  color: #ffd9c9;
-}
-
 .carousel-button {
   position: absolute !important;
   top: 50%;
   transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  color: var(--logo-white) !important;
-  border-radius: 2px !important;
-  background: rgba(15, 17, 26, 0.76) !important;
+  width: 36px !important;
+  height: 36px !important;
+  color: rgba(255, 253, 247, 0.9) !important;
+  background: transparent !important;
+  opacity: 0;
+  transition: opacity 0.2s ease !important;
 }
 
-.carousel-button:hover,
-.carousel-button:focus-visible {
-  background: rgba(15, 17, 26, 0.93) !important;
+.carousel-root:hover .carousel-button {
+  opacity: 1;
 }
 
 .carousel-button.prev {
-  left: 12px;
+  left: 8px;
 }
 
 .carousel-button.next {
-  right: 12px;
-}
-
-.carousel-dots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.8rem;
-  background: rgba(0, 0, 0, 0.08);
-}
-
-.carousel-dot {
-  width: 10px;
-  height: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.35);
-  border-radius: 2px;
-  background: rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-}
-
-.carousel-dot.active {
-  background: var(--accent-rust);
+  right: 8px;
 }
 
 .story-image {
@@ -445,14 +388,12 @@ body::before {
 }
 
 .MuiButton-root,
-.MuiIconButton-root,
-.carousel-button {
+.MuiIconButton-root {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .MuiButton-root:hover,
-.MuiIconButton-root:hover,
-.carousel-button:hover {
+.MuiIconButton-root:hover {
   transform: translateY(-1px);
 }
 
@@ -482,18 +423,7 @@ body::before {
     margin: 0 auto 0.75rem;
   }
 
-  .carousel-button {
-    width: 38px;
-    height: 38px;
-  }
-
-  .carousel-slide-content {
-    left: 0.9rem;
-    right: 0.9rem;
-    bottom: 0.75rem;
-  }
-
-  .store-layout {
+.store-layout {
     grid-template-columns: 1fr;
   }
 }
